@@ -1,0 +1,25 @@
+<div>
+  <!--<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <label for="skuInput">SKU</label>
+    <input type="text" id="skuInput" placeholder="SKU" name="sku" ngModel>
+    <button type="submit">submit sku</button>
+  </form>-->
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="ui form" [class.error]="!myForm.valid && myForm.touched">
+    <div class="field" [class.error]="!name.valid && name.touched">
+      <label for="nameInput">Name {{sku}}</label>
+      <input type="text" id="nameInput" placeholder="Name" [formControl]="myForm.controls['name']">
+      <div *ngIf="!myForm.controls['name'].valid" class="ui error message">Name is invalid</div>
+      <div *ngIf="myForm.controls['name'].hasError('required')" class="ui error message">Name is required</div>
+      <div *ngIf="myForm.controls['name'].hasError('invalidName')" class="ui error message">Custom error</div>
+    </div>
+    <div class="field">
+      <label for="skuInput">Sku</label>
+      <input type="text" id="skuInput" placeholder="Sku" [formControl]="myForm.get('sku')" [(ngModel)]="sku">
+    </div>
+    <div *ngIf="!myForm.valid" class="ui error message">
+      Form is valid
+    </div>
+    <button type="submit" class="ui button">submit name</button>
+  </form>
+</div>
