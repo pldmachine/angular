@@ -14,7 +14,10 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { UserService } from './product/services/user.service';
 import { AnalyticsService } from './product/services/analytics.service';
 import { Metric, IAnalytics } from './product/services/metric.interface';
-import { youTubeSearchInjectables } from "./youtube/youtube-search.injectables"
+import { youTubeSearchInjectables } from "./youtube/youtube-search.injectables";
+import { SearchBoxComponent } from './youtube/search-box/search-box.component';
+import { SearchResultComponent } from './youtube/search-result/search-result.component';
+import { SearchComponent } from './youtube/search/search.component'
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { youTubeSearchInjectables } from "./youtube/youtube-search.injectables"
     ProductDepartmentComponent,
     PriceDisplayComponent,
     ProductImageComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    SearchBoxComponent,
+    SearchResultComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
