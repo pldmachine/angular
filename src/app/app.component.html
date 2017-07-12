@@ -1,16 +1,32 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="inventory-app">
-    <p *ngIf="userName" class="welcome">
-        Welcome: {{userName}} {{apiUrl}}
-    </p>
-    <button (click)="signIn()" class="ui button">Sign In</button>
-    <app-product-form></app-product-form>
-    <app-product-list [products]='products' (onProductSelected)="productWasSelected($event)"></app-product-list>
 
-    <h2>Basic Request</h2>
-    <button type="button" (click)="makeRequest()">Make Request</button>
-    <div *ngIf="loading">loading...</div>
-    <pre>{{data | json}}</pre>
+<div class="page-header">
+    <div> class="container">
+        <h1>Route sample</h1>
+        <div class="navLinks">
+            <a [routerLink]="['/home']">Home</a>
+            <a [routerLink]="['/about']">About</a>
+            <a [routerLink]="['/contact']">Contact Us</a>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="inventory-app">
+            <p *ngIf="userName" class="welcome">
+                Welcome: {{userName}} {{apiUrl}}
+            </p>
+            <button (click)="signIn()" class="ui button">Sign In</button>
+            <app-product-form></app-product-form>
+            <app-product-list [products]='products' (onProductSelected)="productWasSelected($event)"></app-product-list>
 
-    <app-search></app-search>
+            <h2>Basic Request</h2>
+            <button type="button" (click)="makeRequest()">Make Request</button>
+            <div *ngIf="loading">loading...</div>
+            <pre>{{data | json}}</pre>
+
+            <app-search></app-search>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
 </div>
