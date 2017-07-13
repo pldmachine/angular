@@ -22,7 +22,10 @@ import { SearchResultComponent } from './youtube/search-result/search-result.com
 import { SearchComponent } from './youtube/search/search.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component'
+import { ContactComponent } from './contact/contact.component';
+import { ArtistComponent } from './spotify/artist/artist.component';
+import { AlbumComponent } from './spotify/album/album.component';
+import { TrackComponent } from './spotify/track/track.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -46,7 +49,10 @@ const routes: Routes = [
     SearchComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ArtistComponent,
+    AlbumComponent,
+    TrackComponent
   ],
   imports: [
     BrowserModule,
