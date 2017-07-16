@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchResult } from '../../youtube/model/search-result.model';
 
 @Component({
-  selector: 'app-search',
+  selector: 'app-youtube-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })

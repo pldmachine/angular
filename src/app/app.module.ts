@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
@@ -26,13 +27,36 @@ import { ContactComponent } from './contact/contact.component';
 import { ArtistComponent } from './spotify/artist/artist.component';
 import { AlbumComponent } from './spotify/album/album.component';
 import { TrackComponent } from './spotify/track/track.component'
+import { SpotifySearchComponent } from './spotify/search/search.component'
+import { SpotifyService } from "./spotify/services/spotify.service";
+import { LoginComponent } from './auth/login/login.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { LoggedInGuard } from "app/auth/logged-in-guard";
+import { AUTH_PROVIDERS } from "app/services/auth.service";
+import { MenuComponent } from './layout/menu/menu.component';
+import { LoginLinksComponent } from './layout/login-links/login-links.component';
+
+import { AdminModule, routes as childRoutes } from "./admin/admin.module";
+import { AdminComponent } from "app/admin/admin.component";
+import { ChatNavBarComponent } from './chat/chat-nav-bar/chat-nav-bar.component';
+import { ChatThreadsComponent } from './chat/chat-threads/chat-threads.component';
+import { ChatWindowComponent } from './chat/chat-window/chat-window.component';
+import { ChatPageComponent } from './chat/chat-page/chat-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'contactus', redirectTo: 'contact' }
+  { path: 'contactus', redirectTo: 'contact' },
+  { path: 'login', component: LoginComponent },  
+  { path: 'search', component: SpotifySearchComponent },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [LoggedInGuard],
+    children: childRoutes
+  }
 ]
 
 @NgModule({
@@ -52,16 +76,29 @@ const routes: Routes = [
     ContactComponent,
     ArtistComponent,
     AlbumComponent,
-    TrackComponent
+    TrackComponent,
+    SpotifySearchComponent,
+    LoginComponent,
+    MenuComponent,
+    LoginLinksComponent,
+    ChatNavBarComponent,
+    ChatThreadsComponent,
+    ChatWindowComponent,
+    ChatPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    AdminModule,
+    RouterModule.forRoot(routes),
+    NgbModule.forRoot()
   ],
   providers: [
+    AUTH_PROVIDERS,
+    LoggedInGuard,
+    SpotifyService,
     UserService,
     { provide: 'API_URL', useValue: 'http://sdfd.com' },
     youTubeSearchInjectables,

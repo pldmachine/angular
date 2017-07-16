@@ -1,16 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
-<div class="page-header">
-    <div> class="container">
-        <h1>Route sample</h1>
-        <div class="navLinks">
-            <a [routerLink]="['/home']">Home</a>
-            <a [routerLink]="['/about']">About</a>
-            <a [routerLink]="['/contact']">Contact Us</a>
-        </div>
+<div class="row">
+    <div class="col">
+        <app-menu></app-menu>
     </div>
 </div>
-<div class="content">
+<div class="row">
+    <div class="col">
+            <router-outlet></router-outlet>
+    </div>
+</div>
+
+
+<div class="content" *ngIf="false">
     <div class="container">
         <div class="inventory-app">
             <p *ngIf="userName" class="welcome">
@@ -25,8 +26,8 @@
             <div *ngIf="loading">loading...</div>
             <pre>{{data | json}}</pre>
 
-            <app-search></app-search>
+            <app-spotify-search></app-spotify-search>
         </div>
-        <router-outlet></router-outlet>
+
     </div>
 </div>

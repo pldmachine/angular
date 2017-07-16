@@ -1,0 +1,5 @@
+<div *ngIf="authService.getUser(); then logged else guest"></div>
+<li class="nav-item">
+  <ng-template #logged><a class="nav-link" href (click)="logout()">Log out</a></ng-template>
+  <ng-template #guest> <a class="nav-link" [routerLink]="['/login']">Login</a> </ng-template>
+</li>
