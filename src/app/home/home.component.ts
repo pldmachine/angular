@@ -91,9 +91,6 @@ export class HomeComponent implements OnInit {
 
   onNext(value) {    
     let circle = document.getElementById("circle");
-    circle.style.left = value.x;
-    circle.style.top = value.y;
-
   }
 
   ngOnInit() {
