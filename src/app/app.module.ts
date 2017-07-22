@@ -43,13 +43,19 @@ import { ChatThreadsComponent } from './chat/chat-threads/chat-threads.component
 import { ChatWindowComponent } from './chat/chat-window/chat-window.component';
 import { ChatPageComponent } from './chat/chat-page/chat-page.component';
 
+import { MessagesService } from "./chat/services/messages.service";
+import { UsersService as ChatUsersService } from "./chat/services/users.service";
+import { ThreadService } from "./chat/services/threads.service";
+import { ChatThreadComponent } from './chat/chat-thread/chat-thread.component';
+import { ChatMessageComponent } from './chat/chat-message/chat-message.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'contactus', redirectTo: 'contact' },
-  { path: 'login', component: LoginComponent },  
+  { path: 'login', component: LoginComponent },
   { path: 'search', component: SpotifySearchComponent },
   {
     path: 'admin',
@@ -84,7 +90,9 @@ const routes: Routes = [
     ChatNavBarComponent,
     ChatThreadsComponent,
     ChatWindowComponent,
-    ChatPageComponent
+    ChatPageComponent,
+    ChatThreadComponent,
+    ChatMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -100,6 +108,9 @@ const routes: Routes = [
     LoggedInGuard,
     SpotifyService,
     UserService,
+    ChatUsersService,
+    ThreadService,
+    MessagesService,
     { provide: 'API_URL', useValue: 'http://sdfd.com' },
     youTubeSearchInjectables,
     {

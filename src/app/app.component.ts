@@ -2,8 +2,10 @@ import { Component, Inject } from '@angular/core';
 import { Product } from './product/model/product.model';
 import { UserService } from './product/services/user.service';
 import { Http, Response } from '@angular/http';
-
-
+import { ThreadSource } from "./chat/data/thread-source";
+import { UsersService as ChatUsersService  } from './chat/services/users.service';
+import { ThreadService } from './chat/services/threads.service';
+import { MessagesService } from './chat/services/messages.service';
 
 
 let newProduct = new Product(
@@ -26,7 +28,8 @@ export class AppComponent {
   data: Object;
   loading: boolean;
 
-  constructor(private userService: UserService, @Inject('API_URL') private apiUrl: string, private http: Http) {
+  constructor(private userService: UserService, @Inject('API_URL') private apiUrl: string, private http: Http, public threadService: ThreadService, 
+  public messagesService: MessagesService, public chatUserService: ChatUsersService  ) {
     this.products = [
       new Product(
         "Hat",
@@ -43,6 +46,8 @@ export class AppComponent {
         19.77
       ),
     ];
+
+    ThreadSource.init(messagesService, threadService, chatUserService);
   }
 
   signIn(): void {
