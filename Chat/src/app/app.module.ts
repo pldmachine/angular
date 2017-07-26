@@ -49,6 +49,8 @@ import { ThreadService } from "./chat/services/threads.service";
 import { ChatThreadComponent } from './chat/chat-thread/chat-thread.component';
 import { ChatMessageComponent } from './chat/chat-message/chat-message.component';
 
+import { FromNowPipe } from "./chat/pipes/from-now-pipe";
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -92,7 +94,8 @@ const routes: Routes = [
     ChatWindowComponent,
     ChatPageComponent,
     ChatThreadComponent,
-    ChatMessageComponent
+    ChatMessageComponent,
+    FromNowPipe
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, Subject } from 'rxjs';
 
 
 
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     // console.log("before");
     // //this.example3();
     // console.log("after");
-    this.example4();
+    this.example5();
 
   }
 
@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   example2() {
+    
     let numbers = [1, 3, 5, 8, 9];
     let source = Observable.create(observer => {
       for (let n of numbers) {
@@ -88,6 +89,22 @@ export class HomeComponent implements OnInit {
       () => console.log("complete")
     );
   }
+
+example5()
+{
+  var subject = new Subject();
+  subject.subscribe(v=>console.log(`consumer a: ${v}`));
+  subject.subscribe(v=>console.log(`consumer b: ${v}`));
+
+  subject.next("1");
+  subject.next("2");
+
+  var observable = Observable.from([3,4]);
+  
+
+  
+}
+
 
   onNext(value) {    
     let circle = document.getElementById("circle");
