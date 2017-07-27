@@ -1,5 +1,5 @@
-import { Action } from "app/action";
+import { ReduxAction } from "app/redux-action";
 
-export interface DeleteMessageAction extends Action {
+export interface DeleteMessageAction extends ReduxAction {
     index: number;
 }

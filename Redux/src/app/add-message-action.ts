@@ -1,3 +1,5 @@
-export interface AddMessageAction extends Action {
+import { ReduxAction } from "app/redux-action";
+
+export interface AddMessageAction extends ReduxAction {
     message: string;
 }

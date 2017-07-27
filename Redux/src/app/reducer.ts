@@ -1,5 +1,5 @@
-import { Action } from "./action";
+import { ReduxAction } from "app/redux-action";
 
 export interface Reducer<T> {
-    (state: T, action: Action): T;
+    (state: T, action: ReduxAction): T;
 }

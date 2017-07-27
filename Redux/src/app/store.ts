@@ -1,7 +1,7 @@
 import { Reducer } from "app/reducer";
-import { Action } from "app/Action";
 import { ListenerCallback } from "app/listener-callback";
 import { UnsubscribeCallback } from "app/unsubscribe-callback";
+import { ReduxAction } from "app/redux-action";
 
 export class Store<T> {
     private _state: T;
@@ -15,7 +15,7 @@ export class Store<T> {
         return this._state;
     }
 
-    dispatch(action: Action): void {
+    dispatch(action: ReduxAction): void {
         this._state = this.reducer(this._state, action);
         this._listeners.forEach((listener: ListenerCallback)=> listener());
     }

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Reducer } from "./reducer";
-import { Store } from "app/store";
+import { Action, Reducer, Store, createStore } from "redux";
 import { AppState } from "app/app-state";
-import { ReduxAction } from "app/redux-action";
+import { AddMessageAction } from "app/add-message-action";
+import { DeleteMessageAction } from "app/delete-message-action";
+import { MessageActions } from "app/message-actions";
 
 
 
@@ -16,24 +17,41 @@ export class AppComponent {
 
   constructor() {
 
-    let incrementAction: ReduxAction = { type: 'INCREMENT' }
-    let decrementAction: ReduxAction = { type: 'DECREMENT' }
+    let initialState: AppState = { messages: [] };
 
 
-    let reducer: Reducer<AppState> = (state: AppState, action: ReduxAction): AppState => {
+    let reducer: Reducer<AppState> = (state: AppState = initialState, action: Action): AppState => {
+
       switch (action.type) {
         case 'ADD_MESSAGE':
           return {
-
-
-          }
-
+            messages: state.messages.concat((<AddMessageAction>action).message),
+          };
+        case 'DELETE_MESSAGE':
+          let idx = (<DeleteMessageAction>action).index;
+          return {
+            messages: [
+              ...state.messages.slice(0, idx),
+              ...state.messages.slice(idx + 1, state.messages.length)
+            ]
+          };
+        default:
+          return state;
       }
-
-      return state;
     }
 
-    // let store = new Store<number>(reducer,0);
+    let store:Store<AppState> = createStore<AppState>(reducer);
+    console.log(store.getState());
+
+    store.dispatch(MessageActions.addMessage('Message1'));
+    store.dispatch(MessageActions.addMessage('Message2'));
+    store.dispatch(MessageActions.addMessage('Message3'));
+
+    console.log(store.getState());
+
+    store.dispatch(MessageActions.deleteMessage(1));
+
+    console.log(store.getState());
 
     // let unsubscribe = store.subscribe(()=>{
     //   console.log('subscribed: ', store.getState());
