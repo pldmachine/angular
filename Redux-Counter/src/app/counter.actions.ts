@@ -1,11 +1,11 @@
-import { Action,ActionCreator } from "redux";
+import { Action, ActionCreator } from 'redux';
 
-export const INCREMENT: string = 'INCREMENT';
+export const INCREMENT = 'INCREMENT';
 export const increment: ActionCreator<Action> = () => ({
-    type:INCREMENT
+    type: INCREMENT
 });
 
-export const DECREMENT: string = 'DECREMENT';
+export const DECREMENT = 'DECREMENT';
 export const decrement: ActionCreator<Action> = () => ({
-    type:DECREMENT
+    type: DECREMENT
 });
