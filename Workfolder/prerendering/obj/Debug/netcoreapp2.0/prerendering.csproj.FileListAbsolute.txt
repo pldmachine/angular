@@ -1,0 +1,11 @@
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\bin\Debug\netcoreapp2.0\prerendering.deps.json
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\bin\Debug\netcoreapp2.0\prerendering.runtimeconfig.json
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\bin\Debug\netcoreapp2.0\prerendering.runtimeconfig.dev.json
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\bin\Debug\netcoreapp2.0\prerendering.dll
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\obj\Debug\netcoreapp2.0\prerendering.csprojResolveAssemblyReference.cache
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\obj\Debug\netcoreapp2.0\prerendering.csproj.CoreCompileInputs.cache
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\obj\Debug\netcoreapp2.0\prerendering.AssemblyInfoInputs.cache
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\obj\Debug\netcoreapp2.0\prerendering.AssemblyInfo.cs
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\bin\Debug\netcoreapp2.0\prerendering.pdb
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\obj\Debug\netcoreapp2.0\prerendering.dll
+C:\Users\mkraw\Desktop\Angular learning\Workfolder\prerendering\obj\Debug\netcoreapp2.0\prerendering.pdb
