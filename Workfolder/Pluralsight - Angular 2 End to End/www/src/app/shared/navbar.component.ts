@@ -7,7 +7,7 @@ import { Component } from "@angular/core";
         <div class="top-bar-title"> Gigabyte gaming company</div>
         <div>
             <ul class="menu">
-                <li class="nav-menu"><a href="#">Menu Item 1 </a></li>
+                <li class="nav-menu"><a [routerLink]="['/admin']" >Admin Area</a></li>
             </ul>
         </div>
     </div>
